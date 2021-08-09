@@ -4,8 +4,11 @@ using System.Text;
 
 namespace MAD.DataWarehouse.SupplierIO.Services
 {
-    public class ApiResponse<TResults>
+    public class ApiResponse <TData>
     {
-        public ApiResult<TResults> Results { get; set; }
+        public int StatusCode { get; set; }
+        public string Message { get; set; }
+        public TData Data { get; set; }
+        public IEnumerable<string> Errors { get; set; }
     }
 }

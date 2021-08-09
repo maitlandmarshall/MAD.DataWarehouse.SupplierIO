@@ -33,6 +33,23 @@ namespace MAD.DataWarehouse.SupplierIO
                 })
                 .AddHttpMessageHandler<AuthDelegatingHandler>();
 
+            serviceDescriptors
+                .AddHttpClient<SupplierApiClient>((svc, cfg) =>
+                {
+                    var appConfig = svc.GetRequiredService<AppConfig>();
+
+                    if (appConfig.IsSandbox)
+                    {
+                        cfg.BaseAddress = new Uri("https://api.supplierio.com/supplier/");
+                    }
+                    else
+                    {
+                        cfg.BaseAddress = new Uri("https://api.supplier.io/supplier/");
+                    }
+
+                })
+                .AddHttpMessageHandler<AuthDelegatingHandler>();
+
             serviceDescriptors.AddDbContext<SupplierIODbContext>(optionsAction: (svc, opt) =>
             {
                 var appConfig = svc.GetRequiredService<AppConfig>();

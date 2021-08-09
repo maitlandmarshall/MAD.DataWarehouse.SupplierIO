@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MAD.DataWarehouse.SupplierIO.Services
 {
-    public class ApiResult<TResults>
+    public class PaginatedApiResult<TResults>
     {
         [JsonProperty("Error")]
         public string Error { get; set; }

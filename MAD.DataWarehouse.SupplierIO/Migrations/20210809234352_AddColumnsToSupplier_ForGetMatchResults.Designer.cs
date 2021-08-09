@@ -4,14 +4,16 @@ using MAD.DataWarehouse.SupplierIO.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MAD.DataWarehouse.SupplierIO.Migrations
 {
     [DbContext(typeof(SupplierIODbContext))]
-    partial class SupplierIODbContextModelSnapshot : ModelSnapshot
+    [Migration("20210809234352_AddColumnsToSupplier_ForGetMatchResults")]
+    partial class AddColumnsToSupplier_ForGetMatchResults
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
