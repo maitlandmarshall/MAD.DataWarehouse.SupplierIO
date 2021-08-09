@@ -19,7 +19,11 @@ namespace MAD.DataWarehouse.SupplierIO.Services
 
         public async Task<ApiResult<Supplier>> GetSearchDetail(GetSearchDetailApiRequest request)
         {
-            return await this.GetResponse<Supplier>(request, new Dictionary<string, string> { { "searchQuery", request.SearchQuery } } );
+            return await this.GetResponse<Supplier>(request, new Dictionary<string, string> {
+                { "searchQuery", request.SearchQuery },
+                { "startRecord", request.StartRecord.ToString() },
+                { "rowCount", request.RowCount.ToString()}
+            });
         }
 
         private async Task<ApiResult<TResult>> GetResponse<TResult>(ApiRequest request, IDictionary<string, string> queryParams)
