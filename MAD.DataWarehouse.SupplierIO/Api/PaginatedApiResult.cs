@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MAD.DataWarehouse.SupplierIO.Services
+namespace MAD.DataWarehouse.SupplierIO.Api
 {
     public class PaginatedApiResult<TResults>
     {

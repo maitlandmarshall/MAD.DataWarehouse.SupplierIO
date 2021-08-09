@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace MAD.DataWarehouse.SupplierIO.Services
+namespace MAD.DataWarehouse.SupplierIO.Api
 {
     public class GetSuppliersApiRequest : ApiRequest
     {

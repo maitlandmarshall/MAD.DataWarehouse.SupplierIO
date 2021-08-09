@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace MAD.DataWarehouse.SupplierIO.Services
+namespace MAD.DataWarehouse.SupplierIO.Api
 {
     public abstract class BaseApiClient
     {

@@ -1,4 +1,4 @@
-﻿namespace MAD.DataWarehouse.SupplierIO.Services
+﻿namespace MAD.DataWarehouse.SupplierIO.Api
 {
     public class GetSearchDetailApiRequest : ApiRequest
     {

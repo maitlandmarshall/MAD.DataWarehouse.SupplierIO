@@ -7,7 +7,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace MAD.DataWarehouse.SupplierIO.Services
+namespace MAD.DataWarehouse.SupplierIO.Api
 {
     public class SearchApiClient : BaseApiClient
     {
