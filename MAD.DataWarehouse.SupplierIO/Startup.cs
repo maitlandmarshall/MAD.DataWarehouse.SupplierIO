@@ -1,11 +1,12 @@
 ﻿using Hangfire;
 using MAD.DataWarehouse.SupplierIO.Data;
-using MAD.DataWarehouse.SupplierIO.Services;
+using MAD.DataWarehouse.SupplierIO.Api;
 using MAD.Integration.Common.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using MAD.DataWarehouse.SupplierIO.Jobs;
 
 namespace MAD.DataWarehouse.SupplierIO
 {
@@ -55,11 +56,13 @@ namespace MAD.DataWarehouse.SupplierIO
                 var appConfig = svc.GetRequiredService<AppConfig>();
                 opt.UseSqlServer(appConfig.ConnectionString);
             });
+
+            serviceDescriptors.AddScoped<GetSuppliersJob>();
         }
 
-        public async Task Configure(IGlobalConfiguration hangfireConfig)
+        public void Configure(IBackgroundJobClient backgroundJobClient)
         {
-
+            backgroundJobClient.Enqueue<GetSuppliersJob>(y => y.FindSuppliersToLoad(0));
         }
     }
 }
